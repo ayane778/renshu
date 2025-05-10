@@ -1,0 +1,9 @@
+<h1>GeekTwitter</h1>
+<h3>Tweet詳細</h3>
+<div class="tweet">
+  <p><%= @tweet.body %></p>
+  <p><%= @tweet.created_at %></p>
+</div>
+
+<%= link_to "Tweet一覧に戻る", tweets_path %>
+<%= link_to "編集する", edit_tweet_path(@tweet.id) %>
