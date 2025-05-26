@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Tag.create([
+  { name: 'タグ1' },
+  { name: 'タグ2' },
+  { name: 'タグ3' },
+  { name: 'タグ4' },
+  { name: 'タグ5' }
+])

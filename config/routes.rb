@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :users, only: [:show] # ユーザーマイページへのルーティング
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -13,12 +15,13 @@ Rails.application.routes.draw do
   # root "posts#index"
 get 'hello/index' => 'hello#index'
 get 'hello/link' => 'hello#link'
-get 'tweets' => 'tweets#index'
- get 'tweets/new' => 'tweets#new'
-  post 'tweets' => 'tweets#create'
-   get 'tweets/:id' => 'tweets#show',as: 'tweet'
-    patch 'tweets/:id' => 'tweets#update'
-     delete 'tweets/:id' => 'tweets#destroy'
-  get 'tweets/:id/edit' => 'tweets#edit', as:'edit_tweet'
+  get 'tweets/:tweet_id/likes' => 'likes#create'
+  get 'tweets/:tweet_id/likes/:id' => 'likes#destroy'
+
+resources :tweets do
+  resources :likes, only: [:create, :destroy]
+  resources :comments, only: [:create]
+end
+
   root 'hello#index'
 end

@@ -60,3 +60,8 @@ group :test do
 end
 
 gem 'sass-rails'
+gem 'devise'
+ gem 'kaminari'
+ gem 'dotenv-rails'
+ gem 'cloudinary'
+gem 'activestorage-cloudinary-service'
