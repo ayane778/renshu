@@ -1,0 +1,11 @@
+<%= month_calendar(attribute: :start_time, start_attribute: :start_time, end_attribute: :end_time, events: @events) do |date, events| %>
+    <%= date %>
+  <% events.each do |event| %>
+      <p><%= link_to event.title, event %></p>
+  <% end %>
+<% end %>
+<%= link_to "トップへ", tweets_path %>
+
+<% if user_signed_in? && current_user.email == ENV['ADMIN_EMAIL'] %>  
+<%= link_to "カレンダー編集", new_post_path %>
+<% end %>

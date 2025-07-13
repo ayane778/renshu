@@ -1,0 +1,37 @@
+.image-container {
+    display: flex;
+    gap: 30px; /* 画像同士の間隔を30px */
+    justify-content: center; /* 中央寄せ（必要なら） */
+    flex-wrap: wrap; /* 小さな画面で折り返す */
+  }
+  
+  .fancy-image img {
+    width: 300px;
+    height: auto;
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    transition: transform 0.3s ease;
+    border-radius: 20px;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* アニメーションはそのままでOK */
+  @keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+
+  .image2-container {
+    background-image: url("9C5F3373-9748-4163-A58B-99BB3C6EE70A.png");
+  }
+
+
+  .back {
+    background-image: url('apple.jpg'); /* パスは後述 */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    margin: 0;
+  }

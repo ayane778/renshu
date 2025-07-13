@@ -1,0 +1,11 @@
+<%= form_for @post do |f| %>
+    <div class="field">
+        <%= f.label :title %>
+        <p><%= f.text_field :title, :size => 20 %></p>
+        <%= f.label :start_time,"いつ/いつから" %>
+        <p><%= f.date_field :start_time %></p>
+        <%= f.label :end_time,"いつまで？/１日だけの予定の場合、未記入可" %>
+        <p><%= f.date_field :end_time %></p>
+    </div>
+    <%= f.submit "投稿する" %>
+<% end %>

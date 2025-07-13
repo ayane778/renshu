@@ -3,6 +3,11 @@
 <div class="tweet">
   <p><%= @tweet.body %></p>
   <p><%= @tweet.created_at %></p>
+  <% if @tweet.site.present? %>
+  <p>
+    参考サイト: <%= link_to @tweet.site, @tweet.site, target: "_blank", rel: "noopener" %>
+  </p>
+<% end %>
     <% if user_signed_in? %>
       <% if current_user.already_liked?(@tweet) %>
         <%= link_to tweet_like_path(@tweet), method: :delete do %>
@@ -50,3 +55,33 @@
 <% end %>
 
 <%= link_to "Tweet一覧に戻る", tweets_path %>
+
+<div id='map'></div>
+
+<style>
+#map {
+  height: 600px;
+  width: 100%;
+}
+</style>
+
+<!-- js部分 -->
+<script>
+//初期マップの設定
+let map
+let marker
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center:  {lat: <%= @tweet.lat %>, lng: <%= @tweet.lng %>},
+    zoom: 15,
+  });
+
+   marker = new google.maps.Marker({
+    position:  {lat: <%= @tweet.lat %>, lng: <%= @tweet.lng %>},
+    map: map
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCp8cPMyLAOdlpJQ6PQSfoJOCeFbV1fIo&callback=initMap" async defer></script>

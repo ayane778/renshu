@@ -66,7 +66,7 @@ class TweetsController < ApplicationController
 
   private #それより下で定義したメソッドを外から呼び出せないようにするキーワード
   def tweet_params
-    params.require(:tweet).permit(:body, :image, tag_ids: []) #tweetはモデル名のなかでもpermitの中身はtweetモデルのなかでもbodyだけとってきてねって意味
+    params.require(:tweet).permit(:body, :site, :lat, :lng, :image, tag_ids: []) #tweetはモデル名のなかでもpermitの中身はtweetモデルのなかでもbodyだけとってきてねって意味
   end
 
 end
