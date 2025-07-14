@@ -66,7 +66,7 @@ gem 'devise'
  gem 'dotenv-rails'
  gem 'cloudinary'
 gem 'activestorage-cloudinary-service'
-gem 'simple_calendar', '~> 2.0'
+gem 'simple_calendar', '~> 3.1'
 
 group :production do
     gem "pg"
